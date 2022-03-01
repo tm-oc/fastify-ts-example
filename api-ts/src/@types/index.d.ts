@@ -1,12 +1,9 @@
 import type { PrismaClient } from '@prisma/client'
-
-type AppConfig = {
-  NODE_ENV: string
-}
+import type { ConfigType } from '../schemas'
 
 declare module 'fastify' {
   export interface FastifyInstance {
-    config: AppConfig
+    config: ConfigType
     prisma: PrismaClient
   }
 }

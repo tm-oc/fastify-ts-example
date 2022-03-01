@@ -1,5 +1,5 @@
 import { FastifyPluginAsync } from 'fastify'
-import S from 'fluent-json-schema'
+import { Status } from '../schemas'
 
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   const main = async () => {
@@ -15,7 +15,7 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       tags: ['Status'],
       description: '',
       response: {
-        200: S.object().prop('status', S.string()),
+        200: Status,
       },
     },
     handler: main,
